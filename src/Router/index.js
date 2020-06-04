@@ -14,8 +14,6 @@ const ClassifyComponent = lazy(() => import('../View/Tabbar/Classify'))
 const SellerComponent = lazy(() => import('../View/Tabbar/Seller'))
 const CartComponent = lazy(() => import('../View/Tabbar/Cart'))
 const PersonalComponent = lazy(() => import('../View/Tabbar/Personal'))
-const ProductDetailComponent = lazy(() => import('../View/Product/ProductDetail'))
-const ProductListComponent = lazy(() => import('../View/Product/ProductList'))
 
 
 export default [
@@ -23,14 +21,6 @@ export default [
 		component: AppLayout,
 		path: '/',
 		routes: [{
-			path: '/product/detail/:id',
-			exact: true,
-			component: GetView(ProductDetailComponent),
-		}, {
-			path: '/products',
-			exact: true,
-			component: GetView(ProductListComponent)
-		}, {
 			path: '/',
 			component: TabBarLayout,
 			routes: [{

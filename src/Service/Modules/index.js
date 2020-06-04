@@ -1,13 +1,6 @@
-import User from 'Service/Modules/UserModule'
-import Product from 'Service/Modules/ProductModule'
-import Common from 'Service/Modules/CommonModule'
-import Home from 'Service/Modules/HomeModule'
-import Cart from 'Service/Modules/CartModule'
+
+import { Service as Home } from 'Service/Modules/HomeModule'
 
 export default [
-	User,
-	Common,
-	Home,
-	Product,
-	Cart,
+	Home
 ]

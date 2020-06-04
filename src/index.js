@@ -5,7 +5,8 @@ import App from 'View/App.js';
 import * as serviceWorker from 'serviceWorker';
 import Service from 'Service'
 
-import Mocks from '@/Mock'
+// import Mocks from '@/Mock'
+require("./Mock")
 
 React.$api = Service
 ReactDOM.render(

@@ -1,108 +1,61 @@
-import React, { useEffect } from 'react'
-import { HotListStyle } from './style'
+import React, { useEffect, useState } from 'react'
 
 import { connect } from 'react-redux'
 import {
-	InitHomeProductAction,
-	InitHomeBannerAction,
-	InitHomeMenuAction,
-	InitHomeCateAction
+	GetHomeDataAction,
 } from '@/Store/Modules/HomeModule'
 
-import ProductItem from '@/Components/Product/ProductItem'
-import SearchBar from './components/SearchBar'
-import BrandGrid from './components/BrandGrid'
-import Banner from './components/Banner'
-import Menu from './components/Menu'
+import TabBoxComponent from './components/TabBox'
+import FormCard from './components/FormCard'
+import Form from './components/Form'
+
+const FormComponent = TabBoxComponent()(Form)
+const CardComponent = TabBoxComponent()(FormCard)
 
 function Home (props) {
 	
+	const [tab, selectTab] = useState(0)
+	
 	const {
-		immutableBanner,
-		immutableMenu,
-		immutableCate,
-		immutableBrand,
-		immutableProduct
+		immutableProductList,
 	} = props
 	
-	const banner = immutableBanner.toJS()
-	const menu = immutableMenu.toJS()
-	const cate = immutableCate.toJS()
-	const brand = immutableBrand.toJS()
-	const product = immutableProduct.toJS()
+	const ProductList = immutableProductList.toJS()
 	
 	const {
-		InitHomeProduct,
-		InitHomeBanner,
-		InitHomeMenu,
-		InitHomeCate
+		GetHomeData,
 	} = props
 	
 	useEffect(() => {
-		console.log('--执行一次--')
-		// if (!isLoad) {
-		InitHomeProduct()
-		InitHomeBanner()
-		InitHomeMenu()
-		InitHomeCate()
-		// }
+		GetHomeData()
 	}, [])
 	
+	const THEAD = ['', '项目品类', '所属类别', '项目编号', '项目名称', '项目状态', '项目经理', '所属部门', '项目计划时间']
+	
 	return (
-	  <>
-		  <SearchBar/>
-		  <Banner banner={ banner }/>
-		  <Menu menu={ menu }/>
-		  <BrandGrid dataItem={ brand }/>
-		  <BrandGrid dataItem={ cate }/>
-		  
-		  <HotListStyle>
-		    <div className="main">
-		  	  {
-		  		  product.map(item => <ProductItem key={ item.id } dataItem={ item }/>)
-		  	  }
-		    </div>
-		  </HotListStyle>
-	  </>
+		<>
+			{
+				[
+					<CardComponent selectTab={ selectTab } tab={ tab } list={ ProductList }/> ,
+					<FormComponent selectTab={ selectTab } tab={ tab } thead={ THEAD } list={ ProductList }/>
+					][tab]
+			}
+		</>
 	)
 	
 }
 
-// 映射Redux全局的state到组件的props上
-// const mapStateToProps = state => ({
-// 	banner: state.getIn(["home", "banner"]),
-// });
 const mapStateToProps = (state) => ({
-	immutableBanner: state.getIn(['home', 'banner']),
-	immutableMenu: state.getIn(['home', 'menu']),
-	immutableCate: state.getIn(['home', 'cate']),
-	immutableBrand: state.getIn(['home', 'brand']),
-	immutableProduct: state.getIn(['home', 'product']),
-	// immutableBanner: state.home.banner,
-	// immutableMenu: state.home.menu,
-	// immutableCate: state.home.cate,
-	// immutableBrand: state.home.brand,
-	// immutableProduct: state.home.product
+	immutableProductList: state.getIn(['home', 'productList']),
 })
 
-// 映射dispatch到props上
 const mapDispatchToProps = dispatch => ({
-	InitHomeProduct () {
-		dispatch(InitHomeProductAction())
+	GetHomeData () {
+		dispatch(GetHomeDataAction())
 	},
-	InitHomeBanner () {
-		dispatch(InitHomeBannerAction())
-	},
-	InitHomeMenu () {
-		dispatch(InitHomeMenuAction())
-	},
-	InitHomeCate () {
-		dispatch(InitHomeCateAction())
-	}
 })
 
-// 将ui组件包装成容器组件
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(React.memo(Home))

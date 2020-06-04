@@ -6,13 +6,13 @@
  * @Description: In User Settings Edit
  */
 import request from 'Plugins/axios'
-import API from 'Service/Modules'
+import API from './Modules'
 
 let service = {}
 
 API.forEach(_item => {
 	Object.entries(_item.api).forEach((_api) => {
-		service[`${ _item.namespaced }/${ _api[0] }`] = (params, version = 'v1') => request[(_api[1].method).toLowerCase()](`${ process.env.REACT_APP_API_BASEURL }${ version }/${ _api[1].url }`, { params })
+		service[`${ _item.namespaced }/${ _api[0] }`] = (params, version = 'v1') => request[(_api[1].method).toLowerCase()](`${ process.env.REACT_APP_API_BASEURL }${ _api[1].version }/${ _api[1].url }`, { params })
 	})
 })
 

@@ -1,31 +1,13 @@
 import React, { Component } from 'react'
-import './index.less'
 
-export default class Home extends Component {
-	
-	constructor (props) {
-		super(props)
-		
-	}
-	
-	componentWillMount () {
-	
-	}
-	
-	componentDidMount () {
-	
-	}
-	
-	componentWillUnmount () {
-	
-	}
-	
+class Seller extends Component {
 	render () {
 		return (
-		  <div id="Home">
-			  Loading...
-		  </div>
+			<div>
+			
+			</div>
 		)
 	}
 }
 
+export default Seller
