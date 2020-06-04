@@ -1,0 +1,120 @@
+@font-face {
+	font-family: 'iconfont';
+	src: url('../font/iconfont.eot');
+	src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+	url('../font/iconfont.woff2') format('woff2'),
+	url('../font/iconfont.woff') format('woff'),
+	url('../font/iconfont.ttf') format('truetype'),
+	url('../font/iconfont.svg#iconfont') format('svg');
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.iconfont{
+	font-family: "iconfont", PingFang SC, serif;
+	font-style: normal;
+}
+.img-lazy{
+	background-color: #f0f0f0;
+}
+
+html, body {
+	width: 100%;
+	min-width: 320px;
+	//height: 100%;
+	overflow-x: hidden;
+	min-height: 100vh;
+	background-color: #FFF;
+}
+
+body, #__nuxt, #__layout, .body-layout {
+	flex: auto;
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+img {
+	width: 100%;
+	vertical-align: top;
+	border: 0;
+	-webkit-user-drag: none;
+	-webkit-user-modify: read-only;
+	-webkit-user-select: none;
+	display: inline-block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul li,
+ol li {
+	list-style: none;
+}
+
+input, textarea, button {
+	border: none;
+	outline: none;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	-webkit-appearance: none;
+	background-color: #314559;
+}
+
+::-webkit-scrollbar-track {
+	width: 0;
+	//background-color: transparent;
+	background-color: #FFF;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 0;
+	background-color: #aaa;
+}
+
+
+textarea {
+	resize: none;
+}
+
+input:disabled, textarea:disabled {
+	background-color: #FFF;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
+}
+
+.tabBar-layout{
+	display:flex;
+	flex-direction: column;
+	width: 100vw;
+	//height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding-bottom: 0.98rem;
+	position: relative;
+}
+.tabBar-view{
+	width: 100vw;
+	flex: auto;
+}
+
+#app{
+
+	position: fixed;
+	/*chrome 内核 浏览器 position: fixed 防止抖动*/
+	-webkit-transform: translateZ(0);
+}
+

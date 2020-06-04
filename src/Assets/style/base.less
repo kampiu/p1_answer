@@ -1,0 +1,128 @@
+/*
+ * 具体的媒体查询
+ */
+@screen-xs: 480px;
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+@screen-max: 1920px;
+
+@color-A: #2971FF;
+
+/* -- 多行省略 -- */
+.fontBreak(@line: 1; @lineHeight: 0.24rem) {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @line;
+	line-height: @lineHeight;
+}
+
+/* -- 背景填充(主用图片) -- */
+.bgSet(@size: cover) {
+	background-position: center center;
+	background-size: @size;
+	background-repeat: no-repeat;
+}
+
+/* -- icon填充 -- */
+.iconSet(@url: url) {
+	background-image: url(@url);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.loadBg(@x: 1000px;@y: 480px) {
+	background: linear-gradient(90deg, #FCFCFC, #EFEFEF, #FCFCFC);
+	background-size: @x @y;
+	animation: skeleton-animation 3s linear infinite;
+}
+
+
+@keyframes skeleton-animation {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 1000px 0;
+	}
+}
+
+.imgAll {
+	img {
+		min-width: 100%;
+		min-height: 100%;
+	}
+}
+
+.back-up-enter, .back-up-leave-to {
+	opacity: 0;
+	z-index: -10000;
+}
+
+.fade-leave {
+	animation-duration: .2s;
+	animation-fill-mode: both;
+	animation-play-state: paused
+}
+
+.fade-appear.fade-appear-active, .fade-enter.fade-enter-active {
+	-webkit-animation-name: antFadeIn;
+	animation-name: antFadeIn;
+	-webkit-animation-play-state: running;
+	animation-play-state: running
+}
+
+.fade-leave.fade-leave-active {
+	-webkit-animation-name: antFadeOut;
+	animation-name: antFadeOut;
+	-webkit-animation-play-state: running;
+	animation-play-state: running;
+	pointer-events: none
+}
+
+.fade-appear, .fade-enter {
+	opacity: 0
+}
+
+.fade-appear, .fade-enter, .fade-leave {
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear
+}
+
+@-webkit-keyframes antFadeIn {
+	0% {
+		opacity: 0
+	}
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes antFadeIn {
+	0% {
+		opacity: 0
+	}
+	to {
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes antFadeOut {
+	0% {
+		opacity: 1
+	}
+	to {
+		opacity: 0
+	}
+}
+
+@keyframes antFadeOut {
+	0% {
+		opacity: 1
+	}
+	to {
+		opacity: 0
+	}
+}
+
