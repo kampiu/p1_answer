@@ -1,19 +1,19 @@
 import React, { Component, Fragment } from 'react'
 import routers from '@/Router'
-import { renderRoutes } from "react-router-config";
+import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
-import { HashRouter } from "react-router-dom";
+import { HashRouter } from 'react-router-dom'
 import store from '@/Store'
 
 function App () {
+	
 	return (
-	  
-	  <Provider store={store}>
-		  <HashRouter>
-			  {renderRoutes(routers)}
-		  </HashRouter>
-	  </Provider>
-	  // <Fragment>
+		<Provider store={ store }>
+			<HashRouter>
+				{ renderRoutes(routers) }
+			</HashRouter>
+		</Provider>
+		// <Fragment>
 		//   <div className="main-layout">
 		// 	  <Switch>
 		// 		  {
@@ -32,7 +32,7 @@ function App () {
 		// 	  </Switch>
 		//
 		//   </div>
-	  // </Fragment>
+		// </Fragment>
 	)
 }
 

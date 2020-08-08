@@ -9,11 +9,11 @@ const GetView = Component => props => (
   </Suspense>
 )
 
-const HomeComponent = lazy(() => import('../View/Tabbar/Home'))
-const ClassifyComponent = lazy(() => import('../View/Tabbar/Classify'))
-const SellerComponent = lazy(() => import('../View/Tabbar/Seller'))
-const CartComponent = lazy(() => import('../View/Tabbar/Cart'))
-const PersonalComponent = lazy(() => import('../View/Tabbar/Personal'))
+// const HomeComponent = lazy(() => import('../View/Tabbar/Home'))
+const ClassifyComponent = lazy(() => import('../View/Tabbar/Classify/index'))
+// const SellerComponent = lazy(() => import('../View/Tabbar/Seller'))
+// const CartComponent = lazy(() => import('../View/Tabbar/Cart'))
+// const PersonalComponent = lazy(() => import('../View/Tabbar/Personal'))
 
 
 export default [
@@ -26,23 +26,31 @@ export default [
 			routes: [{
 				path: '/',
 				exact: true,
-				render: () => <Redirect to="/home"/>,
+				render: () => <Redirect to="/custom/form/create"/>,
 			},{
-				path: '/home',
-				component: GetView(HomeComponent),
-			}, {
-				path: '/classify',
+				path: '/custom/form/create',
 				component: GetView(ClassifyComponent),
-			}, {
-				path: '/seller',
-				component: GetView(SellerComponent),
-			}, {
-				path: '/cart',
-				component: GetView(CartComponent),
-			}, {
-				path: '/personal',
-				component: GetView(PersonalComponent),
 			}]
+			// routes: [{
+			// 	path: '/',
+			// 	exact: true,
+			// 	render: () => <Redirect to="/home"/>,
+			// },{
+			// 	path: '/home',
+			// 	component: GetView(HomeComponent),
+			// }, {
+			// 	path: '/classify',
+			// 	component: GetView(ClassifyComponent),
+			// }, {
+			// 	path: '/seller',
+			// 	component: GetView(SellerComponent),
+			// }, {
+			// 	path: '/cart',
+			// 	component: GetView(CartComponent),
+			// }, {
+			// 	path: '/personal',
+			// 	component: GetView(PersonalComponent),
+			// }]
 		// }, {
 		// 	path: '/',
 		// 	exact: true,

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 import { connect } from 'react-redux'
-import {
-	GetHomeDataAction,
-} from '@/Store/Modules/HomeModule'
+// import {
+// 	GetHomeDataAction,
+// } from '@/Store/Modules/HomeModule'
+
 
 import TabBoxComponent from './components/TabBox'
 import FormCard from './components/FormCard'
@@ -11,6 +12,7 @@ import Form from './components/Form'
 
 const FormComponent = TabBoxComponent()(Form)
 const CardComponent = TabBoxComponent()(FormCard)
+const GetHomeDataAction = () => {}
 
 function Home (props) {
 	

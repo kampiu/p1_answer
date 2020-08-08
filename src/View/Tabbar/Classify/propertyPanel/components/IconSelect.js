@@ -1,0 +1,41 @@
+import React, { useContext } from 'react'
+import { Form, Select } from 'antd'
+import * as IconAll from '@ant-design/icons'
+
+function IconSelectField ({ options }) {
+	
+	const {
+		type,
+		key,
+		label,
+		value,
+		disabled,
+		required,
+		placeholder,
+		hidden,
+		rules = [{
+			required: options.required || false
+		}]
+	} = Object.assign({
+		type: 'Input',
+		key: '',
+		label: '',
+		disabled: false,
+		required: false,
+		placeholder: '',
+		hidden: false,
+		rules: [{
+			required: false
+		}]
+	}, options)
+	
+	return (
+		<Form.Item name={ key } key={ key } label={ label } required={ required } hidden={ hidden } rules={rules}>
+			<Select disabled={ disabled } placeholder={ placeholder }>
+			
+			</Select>
+		</Form.Item>
+	)
+}
+
+export default IconSelectField
