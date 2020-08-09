@@ -20,7 +20,7 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN # github 上的token环境变量
   local-dir: ./build/ # 根据情况自定义到静态文件输出目录
-  target-branch: gh-pages
+  keep_history: true
   verbose: true
   on:
     branch: master
