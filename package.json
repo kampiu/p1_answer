@@ -2,7 +2,7 @@
   "name": "p1_answer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "http://localhost:80",
   "repository": "https://github.com/kampiu/p1_answer.git",
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
