@@ -15,20 +15,15 @@ install:
 script:
   - npm run build
   #- gitbook build
-after_script:
-  - cd ./build
-  - git init
-  - git config user.name "KAM" # 修改name
-  - git config user.email "1479376017@qq.com" # 修改email
-  - git add .
-  - git commit -m "Travis CI Auto Builder"
-  - git push origin travis # GH_TOKEN是在Travis中配置token的名称
 deploy:
   provider: pages
   github-token: $GITHUB_TOKEN # github 上的token环境变量
   local-dir: ./build/ # 根据情况自定义到静态文件输出目录
+  target_branch: kampiu/travis
   keep_history: true
   skip-cleanup: true
+  name: KAM
+  email: 1479376017@qq.com
   #verbose: true
   on:
     branch: master
